@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khizar’s Awesome Website</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0a0f24;
+    color: #fff;
+}
+
+header {
+    background: #00123c;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    box-shadow: 0 0 10px #4da6ff;
+}
+
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 35px;
+    text-shadow: 0 0 15px #33ccff;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+    background: #003366;
+    border: 2px solid #4da6ff;
+    box-shadow: 0 0 15px #4da6ff;
+}
+
+.card-back {
+    background: #004d80;
+    transform: rotateY(180deg);
+}
+
+/* Confetti Button */
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    background: #0080ff;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #1ad5ff;
+}
+
+button:hover {
+    background: #00ccff;
+    box-shadow: 0 0 30px #33ffff;
+}
+</style>
+</head>
+
+<body>
+
+<header>Welcome to Khizar’s Website 🚀</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hi, I am Khizar! I love coding and learning new things! 😎</p>
+</section>
+
+<section id="cards">
+    <h2>Awesome Flip Cards ✨</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">HTML</div>
+                <div class="card-back">Structure!</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">CSS</div>
+                <div class="card-back">Styling!</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">JS</div>
+                <div class="card-back">Magic!</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="confetti">
+    <h2>Tap to Celebrate 🎉</h2>
+    <button onclick="throwConfetti()">Throw Confetti!</button>
+</section>
+
+<script>
+// Confetti Animation
+function throwConfetti() {
+    const duration = 3 * 1000;
+    const animationEnd = Date.now() + duration;
+
+    (function frame() {
+        const confetti = document.createElement('div');
+        confetti.innerHTML = "🎉";
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.top = "-5vh";
+        confetti.style.fontSize = Math.random() * 20 + 20 + "px";
+        confetti.style.animation = "fall 3s linear";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+
+        if (Date.now() < animationEnd) requestAnimationFrame(frame);
+    })();
+}
+</script>
+
+<style>
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+</style>
+
+</body>
+</html>
