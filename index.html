@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhizarTech 💻</title>
+
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 25px;
+      background: #111a29;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    button {
+      background: #007bff;
+      border: none;
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .section {
+      margin: 40px 0;
+    }
+
+    footer {
+      background: #111a29;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Welcome to KhizarTech Website 🚀</header>
+
+  <div class="section">
+    <h2>Fun Buttons 😄</h2>
+    <button onclick="startConfetti()">🎉 Show Confetti</button>
+    <button onclick="flipCards()">Flip all cards</button>
+    <button onclick="makeGlow()">Make it glow ✨</button>
+  </div>
+
+  <div class="section container">
+    <h2>Contact Me 📩</h2>
+    <p>Send me a message — I’ll get it instantly!</p>
+
+    <input type="text" placeholder="Your Name"><br>
+    <input type="email" placeholder="Your Email"><br>
+    <textarea rows="4" placeholder="Your Message"></textarea><br><br>
+    <button onclick="alert('Message Sent ✅')">Send Message</button>
+  </div>
+
+  <footer>
+    © 2025 KhizarTech. All Rights Reserved 👑
+  </footer>
+
+  <!-- ✅ Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <!-- ✅ Working Script -->
+  <script>
+    function startConfetti() {
+      confetti({
+        particleCount: 200,
+        spread: 150,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function flipCards() {
+      alert("Cards flipped! 😄 (More features coming soon)");
+    }
+
+    function makeGlow() {
+      document.body.style.boxShadow = "0 0 25px white inset";
+      setTimeout(() => {
+        document.body.style.boxShadow = "none";
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
